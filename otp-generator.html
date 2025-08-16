@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OTP Generator</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    background-color: #0d0d0d;
+    color: #00ff00;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  h1 {
+    font-size: 3em;
+    text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #0f0;
+    margin-bottom: 50px;
+  }
+
+  button {
+    background: linear-gradient(90deg, #00ff00, #00aa00);
+    border: none;
+    padding: 15px 40px;
+    font-size: 22px;
+    color: #0d0d0d;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+    text-shadow: 0 0 2px #000;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00 inset;
+  }
+
+  #otp {
+    margin-top: 50px;
+    font-size: 60px;
+    letter-spacing: 10px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0;
+    animation: glow 1.5s infinite alternate;
+  }
+
+  @keyframes glow {
+    from { text-shadow: 0 0 10px #0f0, 0 0 20px #0f0; }
+    to { text-shadow: 0 0 20px #0f0, 0 0 40px #0f0, 0 0 60px #0f0; }
+  }
+
+  p {
+    margin-top: 30px;
+    font-size: 18px;
+    color: #0f0;
+  }
+
+</style>
+</head>
+<body>
+
+<h1>OTP Generator</h1>
+<button onclick="generateOTP()">Generate OTP</button>
+<div id="otp">------</div>
+<p>Copy this OTP to main site</p>
+
+<script>
+function generateOTP() {
+    // Generate 6-digit random OTP
+    let otp = Math.floor(100000 + Math.random() * 900000);
+    document.getElementById('otp').innerText = otp;
+    // Save OTP in localStorage to use in main site
+    localStorage.setItem('generatedOTP', otp);
+}
+</script>
+
+</body>
+</html>
