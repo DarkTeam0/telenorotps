@@ -33,6 +33,7 @@
     border-radius: 10px;
     transition: 0.3s;
     text-shadow: 0 0 2px #000;
+    margin: 10px;
   }
 
   button:hover {
@@ -55,7 +56,7 @@
   }
 
   p {
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 18px;
     color: #0f0;
   }
@@ -66,6 +67,7 @@
 
 <h1>OTP Generator</h1>
 <button onclick="generateOTP()">Generate OTP</button>
+<button onclick="openTelegram()">Join Telegram</button>
 <div id="otp">------</div>
 <p>Copy this OTP to main site</p>
 
@@ -74,8 +76,11 @@ function generateOTP() {
     // Generate 6-digit random OTP
     let otp = Math.floor(100000 + Math.random() * 900000);
     document.getElementById('otp').innerText = otp;
-    // Save OTP in localStorage to use in main site
     localStorage.setItem('generatedOTP', otp);
+}
+
+function openTelegram() {
+    window.open('https://t.me/AkMoDsOfIcial', '_blank');
 }
 </script>
 
